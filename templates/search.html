@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <a href="/"><button>accueil</button></a>
+
+    <form action="/search" method="POST">
+        <input type="text" name="item" placeholder="Search item" required />
+        <button type="submit">Search</button>
+    </form>
+    <p>{{name}}</p>
+    <div class="cards-grid">
+
+    {% for item in ls%}
+    <div class="card-container">
+        <a href="/" class="hero-image-container">
+            <img class="hero-image" src="https://i.postimg.cc/NfR2yhNs/image-equilibrium.jpg"
+                alt="Spinning glass cube" />
+        </a>
+
+        <main class="main-content">
+            <h1><a href="#">Equilibrium #3429</a></h1>
+            <p>Our Equilibrium collection promotes balance and calm.</p>
+
+            <div class="progress">
+                <span>Progress</span>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 70%"></div>
+                </div>
+                <span>70%</span>
+            </div>
+
+            <div class="flex-row">
+                <div class="coin-base">
+                    <img src="https://i.postimg.cc/T1F1K0bW/Ethereum.png" alt="Ethereum" class="small-image" />
+                    <h2>0.041 ETH</h2>
+                </div>
+                <div class="time-left">
+                    <img src="https://i.postimg.cc/prpyV4mH/clock-selection-no-bg.png" alt="clock"
+                        class="small-image" />
+                    <p>3 days left</p>
+                </div>
+            </div>
+        </main>
+
+        <div class="card-attribute">
+            <img src="https://i.postimg.cc/SQBzNQf1/image-avatar.png" alt="avatar" class="small-avatar" />
+            <p>
+                Creation of <span><a href="#">Jules Wyvern</a></span>
+            </p>
+        </div>
+    </div>
+    {% endfor %}
+    </div>
+    <footer>
+        <p>{{annee}}</p>
+    </footer>
+</body>
+
+</html>

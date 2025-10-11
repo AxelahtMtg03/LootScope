@@ -1,0 +1,160 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&display=swap");
+
+:root {
+  --clr-green: #01c3a8;
+  --clr-bg-dark: #151419;
+  --clr-bg-main: #232228;
+  --clr-text-light: #fff;
+  --clr-text-soft: #cfcfcf;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--clr-bg-main);
+  font-family: "Nunito", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 1rem;
+}
+
+/* === Card === */
+.card-container {
+  background: radial-gradient(
+    ellipse at right top,
+    #107667ed 0%,
+    var(--clr-bg-dark) 47%,
+    var(--clr-bg-dark) 100%
+  );
+  border-radius: 1.5rem;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.6);
+  max-width: 400px;
+  padding: 2rem;
+  overflow: hidden;
+  position: relative;
+}
+
+.card-container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 1.5rem;
+  padding: 2px;
+  background: linear-gradient(45deg, #232228, #01c3a8);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  z-index: 0;
+}
+
+/* === Hero Image === */
+.hero-image-container {
+  position: relative;
+  display: block;
+}
+
+.hero-image {
+  width: 100%;
+  border-radius: 1rem;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.hero-image-container:hover .hero-image {
+  transform: scale(1.03);
+}
+
+/* === Main Content === */
+.main-content {
+  position: relative;
+  z-index: 1;
+  color: var(--clr-text-light);
+}
+
+.main-content h1 {
+  font-size: 1.5rem;
+  margin-top: 1.2rem;
+}
+
+.main-content p {
+  color: var(--clr-text-soft);
+  margin: 0.5rem 0 1rem;
+}
+
+/* === Progress Bar === */
+.progress {
+  margin-top: 1rem;
+}
+
+.progress span {
+  display: block;
+  color: var(--clr-text-light);
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+}
+
+.progress-bar {
+  background: #363636;
+  border-radius: 2rem;
+  height: 0.4rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.progress-fill {
+  background: var(--clr-green);
+  height: 100%;
+  border-radius: 2rem;
+  transition: width 0.5s ease;
+}
+
+/* === Info Section === */
+.flex-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.coin-base,
+.time-left {
+  display: flex;
+  align-items: center;
+}
+
+.small-image {
+  width: 1.2em;
+  margin-right: 0.5em;
+}
+
+.small-avatar {
+  width: 2em;
+  border-radius: 50%;
+  outline: 2px solid var(--clr-green);
+  margin-right: 1rem;
+}
+
+/* === Footer === */
+.card-attribute {
+  border-top: 1px solid #2e2e2e;
+  padding-top: 1rem;
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.card-attribute a {
+  color: var(--clr-green);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.card-attribute a:hover {
+  text-decoration: underline;
+}
