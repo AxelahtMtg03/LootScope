@@ -26,15 +26,16 @@
         </a>
 
         <main class="main-content">
-            <h1><a href="#">Equilibrium #3429</a></h1>
+            <h1>{{item['item']}}</h1>
+            <h1>{{item['place']}}</h1>
             <p>Our Equilibrium collection promotes balance and calm.</p>
 
             <div class="progress">
-                <span>Progress</span>
+                <span>Chance</span>
                 <div class="progress-bar">
-                    <div class="progress-fill" style="width: 70%"></div>
+                    <div class="progress-fill" style="width: {{ item['chance'] }}%"></div>
                 </div>
-                <span>70%</span>
+                <span>{{item['chance']}}</span>
             </div>
 
             <div class="flex-row">

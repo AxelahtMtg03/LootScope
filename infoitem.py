@@ -50,5 +50,6 @@ def trieChance(items:list):
 #a=dropsearch("MaG Prime Neuroptics")
 #print(a)        
 #print(maxChance(a))
+#{'place': 'Axi D4 Relic', 'item': 'Mag Prime Neuroptics Blueprint', 'rarity': 'Uncommon', 'chance': 25.33}
 #print(trieChance(a))   
 

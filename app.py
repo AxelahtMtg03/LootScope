@@ -22,6 +22,6 @@ def search():
         return render_template('search.html',ls=trieChance,max=maxchance)
 
 # Pour Vercel, on utilise app directement
-if __name__ == '__main__':
-    app.run(debug=True)
+# if __name__ == '__main__':
+#     app.run(debug=True)
     
