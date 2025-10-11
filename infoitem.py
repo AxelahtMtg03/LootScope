@@ -28,6 +28,8 @@ def dropsearch(name_item:str)->list:
     return ls
 
 def maxChance(items:list):
+    if items==[]:
+        return []
     max=items[0]['chance']
     for element in items:
         if element['chance']>max:
@@ -39,6 +41,8 @@ def maxChance(items:list):
     return lsmax
 
 def trieChance(items:list):
+    if items==[]:
+        return []
     for i in range(len(items)):
         for j in range(i):
             if items[i]['chance']>items[j]['chance']:
