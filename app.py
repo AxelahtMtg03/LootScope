@@ -3,10 +3,10 @@ import datetime
 import infoitem
 
 app = Flask(__name__)
+title="LootScope"
 
 @app.route('/')
 def accueil():
-    title="LootScope"
     current_year = datetime.datetime.now().year
     return render_template('accueil.html',title=title,annee=current_year)
 
@@ -17,8 +17,10 @@ def search():
         x=infoitem.dropsearch(item)
         maxchance=infoitem.maxChance(x)
         trieChance = infoitem.trieChance(x)
-        return render_template('search.html',ls=trieChance)
-application = app
+        for elem in trieChance:
+            elem["image"] = infoitem.get_place_image(elem["place"])
+        return render_template('search.html',title=title,ls=trieChance)
+
 
 # Pour Vercel, on utilise app directement
 if __name__ == '__main__':
