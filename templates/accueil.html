@@ -7,18 +7,38 @@
     <title>{{title}}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <link rel="shortcut icon" href="/static/sigil.webp" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
-    <form action="/search" method="POST">
-        <input type="text" name="item" placeholder="Search item" required />
-        <button type="submit">Search</button>
-    </form>
-    <p>{{name}}</p>
+    <nav>
+        <img src="/static/sigil.webp" alt="">
+        <form action="/search" method="POST">
+            <input type="text" name="item" placeholder="Search item" required />
+            <button type="submit" class="fa fa-search"></button>
+        </form>
+    </nav>
+    {% if message %}
+    <p class="message">{{message}}</p>
+    {% endif %}
+    <div class="info">
+        <img src="/static/sigil.webp" alt="">
+        <h1>LootScope</h1>
+        <p>Welcome to LootScope, your tactical console for tracking resources and relics across the Origin System.
+Scan loot tables to locate the most efficient missions — from Prime parts to rare mods and forgotten components.
+With a clean interface inspired by the Orbiter, you can instantly identify the best place for your next run.
+Simply type the name of an item above… and let the tracker guide your path. Have fun,Tenno.</p>
+    </div>
+    <footer class="footer2">
+        <div class="footer-content">
+            <p> {{annee}} LootScope — Made by Axel Archambeault</p>
+            <div class="footer-links">
+                <a href="https://axelahtmtg03.github.com" class="fa fa-github fa-2x"></a>
 
-    <footer>
-        <p>{{annee}}</p>
+            </div>
+        </div>
     </footer>
+
 </body>
 
 </html>

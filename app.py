@@ -19,10 +19,11 @@ def search():
         trieChance = infoitem.trieChance(x)
         for elem in trieChance:
             elem["image"] = infoitem.get_place_image(elem["place"])
+        if trieChance == []:
+            return  render_template('accueil.html',title=title,message="Item pas dans la data")
         return render_template('search.html',title=title,ls=trieChance)
 
 
 # Pour Vercel, on utilise app directement
 if __name__ == '__main__':
-    app.run(debug=True)
-    
+    app.run(debug=True)          

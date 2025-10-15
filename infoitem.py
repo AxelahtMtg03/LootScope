@@ -6,9 +6,6 @@ URLITEM = "https://api.warframestat.us/items/"
 def normalize(s: str)->str:
     return (s or "").lower().strip()
 
-@lru_cache(maxsize=1)
-def get_items():
-    return requests.get(URLITEM).json()
 
 @lru_cache(maxsize=1)
 def get_drops():
@@ -51,7 +48,7 @@ def trieChance(items:list):
                 items[j]=temp
     return items
 
-PLACES_IMAGES = {
+endroit = {
     "Mercury": 'Mercure.png',
     "Venus": 'Venus.png',
     "Earth": 'Terre.png',
@@ -119,8 +116,8 @@ PLACES_IMAGES = {
 def get_place_image(place: str) -> str:
     """Retourne l'image correspondant au lieu"""
     place = place or ""
-    for key, url in PLACES_IMAGES.items():
+    for key, url in endroit.items():
         if key.lower().split()[0] in place.lower():  # Vérifie le mot principal
             return url
     return "https://static.wikia.nocookie.net/warframe/images/1/10/Placeholder.png"
-print(dropsearch("Valkyr"))# {'place': 'The Perrin Sequence, Partner', 'item': 'Enraged (Valkyr)', 'rarity': 'Common', 'chance': 100}
+#print(dropsearch("Valkyr"))# {'place': 'The Perrin Sequence, Partner', 'item': 'Enraged (Valkyr)', 'rarity': 'Common', 'chance': 100}

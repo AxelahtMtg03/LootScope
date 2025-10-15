@@ -7,17 +7,19 @@
     <title>{{title}}</title>
     <link rel="shortcut icon" href="/static/sigil.webp" type="image/x-icon">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
     
-    <a href="/"><button>accueil</button></a>
+    <nav class="compact">
+        <a href="/"><img src="/static/sigil.webp" alt=""></a>
 
-    <form action="/search" method="POST">
-        <input type="text" name="item" placeholder="Search item" required />
-        <button type="submit">Search</button>
-    </form>
-    <p>{{name}}</p>
+        <form action="/search" method="POST">
+            <input type="text" name="item" placeholder="Search item" required />
+            <button type="submit" class="fa fa-search"></button>
+        </form>
+    </nav>
     <div class="cards-grid">
 
     {% for item in ls%}
@@ -40,30 +42,19 @@
                 </div>
             </div>
 
-            <div class="flex-row">
-                <div class="coin-base">
-                    <!-- <img src="https://i.postimg.cc/T1F1K0bW/Ethereum.png" alt="Ethereum" class="small-image" /> -->
-                    <a href="https://warframe.fandom.com/wiki/{{ item['item'] }}" target="_blank"><h2>Voir sur le Wiki</h2></a>
-                    <!-- <h2>0.041 ETH</h2> -->
-                </div>
-                <!-- <div class="time-left">
-                    <img src="https://i.postimg.cc/prpyV4mH/clock-selection-no-bg.png" alt="clock"
-                        class="small-image" />
-                    <p>3 days left</p>
-                </div> -->
-            </div>
-        </main>
 
-        <!-- <div class="card-attribute">
-            <p>
-                <a href="https://warframe.fandom.com/wiki/{{ item['item'] }}" target="_blank">Voir sur le Wiki</a>
-            </p>
-        </div> -->
+        </main>
     </div>
     {% endfor %}
     </div>
     <footer>
-        <p>{{annee}}</p>
+        <div class="footer-content">
+            <p> {{annee}} LootScope — Made by Axel Archambeault</p>
+            <div class="footer-links">
+                <a href="https://axelahtmtg03.github.com" class="fa fa-github fa-2x"></a>
+
+            </div>
+        </div>
     </footer>
 </body>
 
