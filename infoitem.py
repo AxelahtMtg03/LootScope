@@ -8,8 +8,15 @@ def normalize(s: str)->str:
 
 
 @lru_cache(maxsize=1)
-def get_drops():
-    return requests.get(URLDROP).json() 
+def get_drops():    
+    try:
+        response = requests.get(URLDROP, timeout=10)
+        response.raise_for_status()  # Lève une erreur si code != 200
+        return response.json()
+    except requests.exceptions.RequestException as e:
+        print("Impossible de récupérer les données :", e)
+        return []
+
 
 def dropsearch(name_item:str)->list:
     #pour avoir les infos lieux rarete chance d'avoir
