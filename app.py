@@ -23,7 +23,9 @@ def search():
             return  render_template('accueil.html',title=title,message="Item pas dans la data")
         return render_template('search.html',title=title,ls=trieChance)
 
-
+@app.route('/healthz')
+def health_check():
+    return "ok", 200
 # Pour Vercel, on utilise app directement
 if __name__ == '__main__':
     app.run(debug=True)          
